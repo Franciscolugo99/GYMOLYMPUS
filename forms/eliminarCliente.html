@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>GYM OLYMPUS</title>
+</head>
+
+<body>
+
+    <div class="navbar navbar-expand-lg bg-light">
+        <nav class="nav nav-tabs">
+            <a class="nav-link active" aria-current="page" href="http://localhost:3000/addNuevoClientes">Agregar
+                Cliente</a>
+            <a class="nav-link active" aria-current="page" href="http://localhost:3000/verClientes">Ver Clientes</a>
+            <a class="nav-link active" aria-current="page" href="http://localhost:3000/eliminarClientes">Eliminar
+                Cliente</a>
+            <a class="nav-link active" aria-current="page" href="http://localhost:3000/cuotaClientes">Cambiar Cuota
+                Cliente</a>
+        </nav>
+    </div>
+
+
+
+    <h2>Eliminar
+        Cliente</h2>
+
+    <form action="http://localhost:3000/eliminarCliente" method="post">
+        <div id="tablElim">
+        </div>
+        <br>
+        <input type="submit" value="Eliminar" class="btn btn-outline-danger">
+        <script>
+            fetch("http://localhost:3000/verClientesT")
+                .then(response => response.json())
+                .then(listarClientes => mostrarCliente(listarClientes))
+                .catch(error => console.log(error));
+            const mostrarCliente = (clientes) => {
+                var clienteTabla = "<option value=''>selecione un Cliente</option>";
+
+                for (var i = 0; i < clientes.length; i++) {
+                    clienteTabla = clienteTabla + "<option value='" + i + "'>" + clientes[i].nombre + "  " +
+                        clientes[i].apellido + " - " + clientes[i].dni +
+                        "</option>";
+                }
+                clienteTabla = '<select name=dni>' + clienteTabla + '</select>';
+                document.getElementById('tablElim').innerHTML = clienteTabla;
+
+            };
+        </script>
+
+
+</html>

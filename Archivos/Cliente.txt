@@ -1,0 +1,1 @@
+[{"nombre":"Daiana","apellido":"Reyes","edad":"2003-02-20","dni":"44756983","sexo":"Fem","cuota":"5000"},{"nombre":"Octavbio","apellido":"Cortez","edad":"1988-12-06","dni":"5438123","sexo":"Mas","cuota":"4000"},{"nombre":"Francisco ","apellido":"Caceres","edad":"2222-03-23","dni":"876899","sexo":"Mas","cuota":"3000"}]
